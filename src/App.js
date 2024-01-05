@@ -1,17 +1,8 @@
 import './App.css';
-import "./currencies.json";
 
-const request = new XMLHttpRequest();
-
-request.open('GET', "currencies.json");
-
-request.responseType = 'json';
-
-request.onload = () => {
-  console.log(request.response);
-};
-
-request.send();
+fetch("currencies.json")
+  .then(response => response.json())
+  .then(currencies => console.log(currencies));
 
 function App() {
 
