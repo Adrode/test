@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import "./currencies.json";
+
+const request = new XMLHttpRequest();
+
+request.open('GET', "currencies.json");
+
+request.responseType = 'json';
+
+request.onload = () => {
+  console.log(request.response);
+};
+
+request.send();
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form>
+        <input placeholer="Type amount"></input>
+        <select>
+          <option>USD</option>
+          <option>EUR</option>
+        </select>
+      </form>
     </div>
   );
 }
